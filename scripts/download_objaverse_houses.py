@@ -22,9 +22,9 @@ def download_and_rename_file(info):
         destination_folder = os.path.join(save_dir, "houses_2023_07_28")
         os.makedirs(destination_folder, exist_ok=True)
         destination_dir = os.path.join(destination_folder, f"{subset}.jsonl.gz")
-        command = f"mv {tmp_save_path} {destination_dir}"
-        print("Running:", command)
-        subprocess.call(command, shell=True)
+        command = ["mv", tmp_save_path, destination_dir]
+        print("Running:", ' '.join(command))
+        subprocess.call(command, shell=False)
 
 
 def main():
