@@ -14,9 +14,9 @@ ALL_TASK_TYPES = [
 
 
 def untar_file(tar_file: str, destination_dir: str):
-    command = f"tar -xzf {tar_file} -C {destination_dir} --strip-components=1"
-    print("Running:", command)
-    subprocess.call(command, shell=True)
+    command = ["tar", "-xzf", tar_file, "-C", destination_dir, "--strip-components=1"]
+    print("Running:", " ".join(command))
+    subprocess.call(command, shell=False)
 
 
 def download_and_untar_file(info):
